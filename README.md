@@ -95,3 +95,10 @@ const unsubscribe = t.subscribe(handler)
 
 ```
 
+# Install
+```cli
+$ npm i react-observable-mutations
+```
+
+# License
+MIT

@@ -1,10 +1,15 @@
 {
   "name": "react-observable-mutations",
   "description": "React app state management",
-  "version": "0.1.0",
-  "main": "./build/cjs/index.js",
-  "module": "./build/esm/index.js",
-  "type": "module",
+  "version": "1.0.0",
+  "main": "./dist/cjs/Observer.js",
+  "module": "./dist/esm/Observer.js",
+  "types": "./dist/Observer.d.ts",
+  "files": [
+    "dist/",
+    "LICENSE.md",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Dittner/react-observable-mutations"
@@ -22,10 +27,6 @@
   "homepage": "https://github.com/Dittner/react-observable-mutations",
   "private": false,
   "peerDependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
     "@types/node": "^16.18.95",
     "@types/react": "^18.2.74",
     "@types/react-dom": "^18.2.24",
@@ -36,7 +37,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "build": "webpack"
+    "test": "jest",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc --module es2015 --target es5 --outDir dist/esm",
+    "build:cjs": "tsc --module commonjs --target es5 --outDir dist/cjs"
   },
   "eslintConfig": {
     "extends": [
@@ -59,6 +63,13 @@
   "devDependencies": {
     "ts-loader": "^9.5.1",
     "webpack": "^5.91.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "ts-jest": "^29.1.1"
   }
 }

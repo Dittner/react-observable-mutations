@@ -93,13 +93,12 @@ export enum ReactionRunnerStatus {
 
 class ReactionRunner {
   static readonly self = new ReactionRunner()
-
   private readonly temp = Array<Observable>()
   private readonly queue = new Set<Observable>()
   private status = ReactionRunnerStatus.IDLE
 
   addToQueue(ob: Observable) {
-    if (this.infiniteLoopFound) return
+    if (this.infiniteLoopDetected) return
 
     if (this.status === ReactionRunnerStatus.RUNNING) {
       this.temp.push(ob)
@@ -115,7 +114,7 @@ class ReactionRunner {
   }
 
   private readonly INFINITE_LOOP_LIMIT = 20
-  private infiniteLoopFound = false
+  private infiniteLoopDetected = false
   private loopRenderings = 0
   private runAll() {
     logInfo('--Start executing of reaction...')
@@ -151,7 +150,7 @@ class ReactionRunner {
         this.temp.forEach(ob => { this.addToQueue(ob) })
         this.temp.length = 0
       } else {
-        this.infiniteLoopFound = true
+        this.infiniteLoopDetected = true
         logWarn('--Infinite Loop! The possible reason: An executed reaction X invoked new rendering of a JSX-component, ' +
           'that caused mutation in observable object, that added again the reaction X to the execution queue.')
       }
@@ -198,7 +197,7 @@ export class Observable {
   mutated() {
     if (!this._isMutated) {
       this._isMutated = true
-      console.log(this.className, 'mutated')
+      logInfo(this.className, 'mutated')
       ReactionRunner.self.addToQueue(this)
     }
   }

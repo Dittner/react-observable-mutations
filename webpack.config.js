@@ -5,10 +5,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default {
   entry: {
-    esm: './src/index.ts',
+    esm: './src/observer.ts',
   },
   output: {
-    filename: '[name]/index.js',
+    filename: '[name]/observer.js',
     path: path.resolve(__dirname, 'build'),
     library: {
       type: 'module',
