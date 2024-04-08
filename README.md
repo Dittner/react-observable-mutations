@@ -38,7 +38,7 @@ export class TodoListVM extends Observable {
   tasks: Task[]
 
   constructor() {
-    super('TodoVM')
+    super('TodoListVM')
     this.tasks = []
   }
 
@@ -49,8 +49,9 @@ export class TodoListVM extends Observable {
 }
 ```
 
-The TodoListView will be rendered only after a new task is added.
-The TaskView will be rendered after a new task is added or the task's status is changed.
+The TodoListView must be rendered only after a new task is added.
+The TaskView must be rendered after a new task is added or the task's status is changed.
+For this we have to use `observer` and `observe` function-wrappers:
 
 ```tsx
 const todoListVM = new TodoListVM()
@@ -65,7 +66,9 @@ export const TodoListView = observer(() => {
                        task={task}/>
     })}
     <p>------------------</p>
-    <button onClick={() => { vm.addTask('Task ' + (vm.tasks.length + 1)) }}>Add Task</button>
+    <button onClick={() => { vm.addTask('Task ' + (vm.tasks.length + 1)) }}>
+    Add Task
+    </button>
   </div>
 })
 
@@ -83,4 +86,12 @@ export const TaskView = observer((props: TaskViewProps) => {
 
 ```
 
+You can subscribe to any observed object directly:
+```ts
+const t = new Task(text)
+const handler = () => { console.log('Task is mutated!') }
+const unsubscribe = t.subscribe(handler)
+// unsubscribe()
+
+```
 
