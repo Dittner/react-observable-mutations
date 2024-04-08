@@ -1,0 +1,64 @@
+{
+  "name": "react-observable-mutations",
+  "description": "React app state management",
+  "version": "0.1.0",
+  "main": "./build/cjs/index.js",
+  "module": "./build/esm/index.js",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dittner/react-observable-mutations"
+  },
+  "keywords": [
+    "react",
+    "state managment",
+    "observable"
+  ],
+  "author": "Alexander Dittner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dittner/react-observable-mutations/issues"
+  },
+  "homepage": "https://github.com/Dittner/react-observable-mutations",
+  "private": false,
+  "peerDependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.95",
+    "@types/react": "^18.2.74",
+    "@types/react-dom": "^18.2.24",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "build": "webpack"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "ts-loader": "^9.5.1",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
