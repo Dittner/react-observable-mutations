@@ -2,8 +2,8 @@
 
 The ROM – an observable pattern based library. It can be used as an app state managment, that focuses on the mutations of observable objects: DomainEntities, ViewModels, Services, etc. But it's not possible to subscribe to changes of object's properties, lists or primitive values. In addition, subscriptions are registered manually, that makes the ROM more transparent and flexible than MobX.
 
-## As an example, let's create a simple ToDo app
-Our domain model has only a todo-task:
+## As an example, let's create a simple ToDo App
+Our domain model has only a ToDo-Task:
 
 ```ts
 export class Task extends Observable {
