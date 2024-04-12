@@ -1,7 +1,7 @@
 {
   "name": "react-observable-mutations",
   "description": "React app state management",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "./dist/cjs/Observer.js",
   "module": "./dist/esm/Observer.js",
   "types": "./dist/Observer.d.ts",
