@@ -1,6 +1,6 @@
 # react-observable-mutations (ROM)
 
-The ROM – an observable pattern based library. It can be used as an app state managment, that focuses on the mutations of observable objects: DomainEntities, ViewModels, Services, etc. The lib doesn't allow to subscribe to changes of object's properties, lists or primitive values. In addition, subscriptions are registered manually, that makes the ROM more transparent and flexible than MobX.
+The ROM – an observable pattern based library. It can be used as an app state managment, that focuses on the mutations of the observable objects: DomainEntities, ViewModels, Services, etc. The lib doesn't allow to subscribe to changes of object's properties, lists or primitive values. In addition, subscriptions are registered manually, that makes the ROM more transparent and flexible than MobX.
 
 ## As an example, let's create a simple ToDo App
 Our domain model has only a ToDo-Task:
@@ -89,7 +89,7 @@ export const TaskView = observer((props: TaskViewProps) => {
 You can subscribe to any observed object directly:
 ```ts
 const t = new Task(text)
-const handler = () => { console.log('Task is mutated!') }
+const handler = () => { console.log('Task has mutated!') }
 const unsubscribe = t.subscribe(handler)
 // unsubscribe()
 
